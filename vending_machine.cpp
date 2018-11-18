@@ -6,7 +6,7 @@ using namespace std;
 
 Vending_Machine::Vending_Machine() // empty constructor to set money.
 {
-    money = 0;
+    money = 500;
 }
 void Vending_Machine::insert_Money() // for insert the money.
 {
@@ -109,39 +109,47 @@ void return_change(Vending_Machine o)
 {
     cout << "---------------------------------------\n";
     cout << o << endl;
-    cout << "Your money " << o.money << " LE" << endl;
-    while (o.money != 0)
+    double value = 0;
+    value = o.money - 500;
+    cout << "Your money " << value << " LE" << endl;
+    while (value != 0)
     {
-        if (o.money >= 20)
+        if (value >= 20)
         {
             cout << "20 LE\n";
+            value -= 20;
             o.money -= 20;
             continue;
         }
-        if (o.money >= 10)
+        if (value >= 10)
         {
             cout << "10 LE\n";
+            value -= 10;
             o.money -= 10;
             continue;
         }
-        if (o.money >= 5)
+        if (value >= 5)
         {
             cout << "5 LE\n";
+            value -= 5;
             o.money -= 5;
             continue;
         }
-        if (o.money >= 1)
+        if (value >= 1)
         {
             cout << "1 LE\n";
-            o.money -= 20;
+            value -= 1;
+            o.money -= 1;
             continue;
         }
-        if (o.money >= 0.5)
+        if (value >= 0.5)
         {
             cout << "0.5 LE\n";
+            value -= 0.5;
             o.money -= 0.5;
             continue;
         }
+
 
 
     }
